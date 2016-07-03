@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 
+  # get 
   get '/ps', to: 'candidatos#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
