@@ -2,7 +2,7 @@
 
 <h1>Inscreva-se no Processo Seletivo</h1>
 
-<%= form_for(@candidato) do |f| %>
+<%= form_for (@candidato) do |f| %>
 	<%= f.label :nome %>
 	<%= f.text_field :nome %>
 
@@ -18,7 +18,7 @@
 	<%= f.label :cpf %>
 	<%= f.text_field :cpf %>
 
-	<%= f.label :data_da_dinamica %>
+	<%= f.label :data_da_dinâmica %>
 	<%= f.text_field :data_dinamica_id %>
 
 	<%= f.submit "Inscrever" %>
