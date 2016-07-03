@@ -1,0 +1,2 @@
+class DataDinamicasController < ApplicationController
+end

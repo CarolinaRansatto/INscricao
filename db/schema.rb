@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703175725) do
+ActiveRecord::Schema.define(version: 20160703202031) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
 
   create_table "candidatos", force: :cascade do |t|
     t.string   "nome"
@@ -32,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160703175725) do
   end
 
   create_table "data_dinamicas", force: :cascade do |t|
-    t.datetime "data"
+    t.string   "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
