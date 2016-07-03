@@ -1,0 +1,5 @@
+class AddCursoIdToCandidatos < ActiveRecord::Migration
+  def change
+    add_column :candidatos, :id_curso, :integer
+  end
+end
