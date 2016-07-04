@@ -1,0 +1,18 @@
+<% provide(:title, 'Datas de Dinâmica') %>
+
+<h1>Datas de Dinâmica</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Data</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @datas.each do |d| %>
+			<tr>
+				<td><%= d.data %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

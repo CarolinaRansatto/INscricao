@@ -1,5 +1,9 @@
 class CandidatosController < ApplicationController
 
+  def index
+    @candidatos = Candidato.all
+  end
+
   def new
   	@candidato = Candidato.new
   end

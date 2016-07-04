@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :candidatos, only: [:new, :create]
+  resources :candidatos, only: [:index, :new, :create]
+  resources :data_dinamicas, only: [:index]
   get 'candidatos/success'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,26 +1,11 @@
-<% provide(:title, 'Processo Seletivo') %>
+<% provide(:title, 'Criar Admin') %>
 
-<h1>Inscreva-se no Processo Seletivo</h1>
+<h1>Criar Novo Admin</h1>
 
-<%= form_for (@candidato) do |f| %>
+<%= form_for @admin do |a| %>
     <%= render 'shared/error_messages', object: f.object %>
-	<%= f.label :nome %>
-	<%= f.text_field :nome %>
-
-	<%= f.label :email %>
+	<%= f.label :email%>
 	<%= f.text_field :email %>
-
-	<%= f.label :curso %>
-	<%= f.text_field :curso %>
-
-	<%= f.label :período %>
-	<%= f.text_field :periodo %>
-
-	<%= f.label :cpf %>
-	<%= f.text_field :cpf %>
-
-	<%= f.label :data_da_dinâmica %>
-	<%= f.text_field :data_dinamica_id %>
-
-	<%= f.submit "Inscrever" %>
+	
+	<%= f.submit "Cadastrar" %>
 <% end %>

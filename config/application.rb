@@ -22,5 +22,8 @@ module INscricao
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.i18n.default_locale = :"pt-BR"
+    I18n.enforce_available_locales = false
   end
 end
