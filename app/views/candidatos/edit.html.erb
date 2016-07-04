@@ -2,7 +2,7 @@
 
 <h1>Edite sua Inscrição</h1>
 
-<%= form_for (@candidato) do |f| %>
+<%= form_for @candidato do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 	<p>
 	<%= f.label :nome %>
@@ -36,8 +36,6 @@
 	<%= f.label :data_da_dinâmica %>
 	<%= f.collection_radio_buttons :data_dinamica_id, DataDinamica.all, :id, :data %>
 	</p>
-
-	<%= f.hidden_field :token, :value => params[:token] %>
 
 	<p><%= f.submit "Editar" %></p>
 <% end %>

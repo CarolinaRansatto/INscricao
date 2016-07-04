@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
 
-  get 'sessoes/new'
-
   resources :candidatos, only: [:index, :new, :create, :edit, :update]
   resources :data_dinamicas, only: [:index]
-  get 'candidatos/success'
-  get '/login', to: 'sessoes#new'
-  post '/login', to: 'sessoes#create'
-  delete '/logout', to: 'sessoes#destroy'
+  get 'candidatos/success', as: :success
+
+  get '/login', 			to: 'sessoes#new'
+  post '/login', 			to: 'sessoes#create'
+  delete '/logout', 		to: 'sessoes#destroy'
+
+
+
+  # get '/ps', 				to: 'candidatos#new', 		as: :new_candidato
+  # post '/ps', 				to: 'candidatos#create',	as: :create_candidato
+  # get '/ps/s/:token',		to: 'candidatos#success', 	as: :success
+  # get '/ps/:id/:token', 	to: 'candidatos#edit',		as: :edit_candidato
+  # patch '/ps/:id/:token', 	to: 'candidatos#update',	as: :update_candidato
+  # put '/ps/:id/:token', 	to: 'candidatos#update'
+  # get '/datas',				to: 'data_dinamicas#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

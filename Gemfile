@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'brcpfcnpj'
 gem 'rails-i18n'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'

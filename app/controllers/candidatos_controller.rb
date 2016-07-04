@@ -13,7 +13,7 @@ class CandidatosController < ApplicationController
   	@candidato = Candidato.new(candidato_params)
   	if @candidato.save
   		CandidatoMailer.editar_inscricao(@candidato).deliver_now
-  		redirect_to "/candidatos/success?token=#{@candidato.edit_token}" 
+  		redirect_to success_url(token: @candidato.edit_token)
   	else
   		render 'new'
   	end
@@ -21,11 +21,12 @@ class CandidatosController < ApplicationController
 
   def edit
   	@candidato = Candidato.find(params[:id])
-  	if !@candidato || !@candidato.autorizado?(params[:token])
+    if params[:token] != nil
+      session[:edit_token] = params[:token]
+    end
+  	if !@candidato || !@candidato.autorizado?(session[:edit_token])
   		redirect_to new_candidato_url
-  	else
-  		@candidato.edit_token = params[:token]
-  	end
+    end
   end
 
   def update
@@ -34,11 +35,12 @@ class CandidatosController < ApplicationController
 
   	if @candidato.update_attributes(candidato_params)
   		if email != params[:email]
+        @candidato.edit_token = session[:edit_token]
   			CandidatoMailer.editar_inscricao(@candidato).deliver_now
   		end
-  		redirect_to "/candidatos/success?token=#{params[:token]}" 
+  		redirect_to success_url(token: session[:edit_token])
 	  else
-	  	redirect_to "/candidatos/#{params[:id]}/edit?token=#{params[:token]}"
+	  	render 'edit'
 	  end
 	end
 
@@ -50,7 +52,7 @@ class CandidatosController < ApplicationController
 
   	def candidato_params
   		params.require(:candidato).permit(:nome, :email, :cpf, :matricula, 
-  			:periodo, :curso_id, :data_dinamica_id)
+  			:periodo, :curso_id, :data_dinamica_id, :edit_token)
   	end
 
 end
