@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :candidatos, only: [:index, :new, :create]
+  resources :candidatos, only: [:index, :new, :create, :edit, :update]
   resources :data_dinamicas, only: [:index]
   get 'candidatos/success'
 
