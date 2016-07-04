@@ -13,7 +13,7 @@ class CandidatosController < ApplicationController
   	@candidato = Candidato.new(candidato_params)
   	if @candidato.save
   		CandidatoMailer.editar_inscricao(@candidato).deliver_now
-  		redirect_to success_url(token: @candidato.edit_token)
+  		redirect_to success_url(id: @candidato.id, token: @candidato.edit_token)
   	else
   		render 'new'
   	end
@@ -38,7 +38,7 @@ class CandidatosController < ApplicationController
         @candidato.edit_token = session[:edit_token]
   			CandidatoMailer.editar_inscricao(@candidato).deliver_now
   		end
-  		redirect_to success_url(token: session[:edit_token])
+  		redirect_to success_url(id: params[:id], token: session[:edit_token])
 	  else
 	  	render 'edit'
 	  end
