@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'sessoes/new'
+
   resources :candidatos, only: [:index, :new, :create, :edit, :update]
   resources :data_dinamicas, only: [:index]
   get 'candidatos/success'
+  get '/login', to: 'sessoes#new'
+  post '/login', to: 'sessoes#create'
+  delete '/logout', to: 'sessoes#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

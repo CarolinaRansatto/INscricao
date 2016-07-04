@@ -17,7 +17,7 @@ class Candidato < ActiveRecord::Base
 	validates :curso_id, presence: true
 	validates :data_dinamica_id, presence: true
 
-	def Candidato.digest(string)
+  def Candidato.digest(string)
     BCrypt::Password.create(string)
   end
 

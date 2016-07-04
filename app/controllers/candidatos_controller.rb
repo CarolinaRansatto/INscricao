@@ -1,4 +1,5 @@
 class CandidatosController < ApplicationController
+  before_action :exigir_login, only: [:index]
 
   def index
     @candidatos = Candidato.all
