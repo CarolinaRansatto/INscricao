@@ -1,0 +1,5 @@
+<% provide(:title, 'Inscrição realizada') %>
+
+<h1>Inscrição realizada com sucesso!</h1>
+
+<p>Você pode editar os dados da sua inscrição <%= link_to "aqui", edit_candidato_url(params[:id], params[:token]) %>. Esse link foi enviado para o seu email. Após o período de inscrição entraremos em contato com os próximos passos!</p>

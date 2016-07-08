@@ -30,7 +30,7 @@ class CandidatosController < ApplicationController
   end
 
   def update
-  	@candidato = Candidato.find_by(params[:id])
+  	@candidato = Candidato.find(params[:id])
   	email = @candidato.email
 
   	if @candidato.update_attributes(candidato_params)

@@ -1,0 +1,21 @@
+<% provide(:title, 'Lista de Candidatos') %>
+
+<h1>Candidatos Inscritos</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th><th>Email</th><th>Curso</th><th>Período</th>
+			<th>Matrícula</th><th>CPF</th><th>Data da Dinâmica</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @candidatos.each do |c| %>
+			<tr>
+				<td><%= c.nome %></td><td><%= c.email %></td><td><%= c.curso.nome %></td>
+				<td><%= c.periodo %></td><td><%= c.matricula %></td><td><%= c.cpf %></td>
+				<td><%= c.data_dinamica.data %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

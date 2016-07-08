@@ -6,19 +6,57 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-	<p>
-		<% if logado? %>
-			<%= link_to "Candidatos Inscritos", candidatos_path %> | 
-			<%= link_to "Datas de Dinâmica", data_dinamicas_path %> |
-			<%= link_to "Log out", logout_path, method: "delete" %>
-		<% else %>
-			<%= link_to "Admin", login_path %>
+<body class="<%= controller.controller_name %>">
+	  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Abrir menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button><%= link_to image_tag("logoin.png", alt: "logoIn"),"#"%>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "A empresa", "#"%></a></li>
+              <li><%= link_to "Portifólio", "#"%></a></li>
+              <li><%= link_to "Processo seletivo", "#"%></a></li>
+              <li><%= link_to "Contatos", "#"%></a></li>
+              <li><%= link_to "Eventos", "#"%></a></li>
+              <% if logado? %>
+								<li><%= link_to "Candidatos Inscritos", candidatos_path %> </li> 
+								<li><%= link_to "Datas de Dinâmica", data_dinamicas_path %> </li>
+								<li><%= link_to "Log out", logout_path, method: "delete" %> </li>
+							<% else %>
+								<li><%= link_to "Login", login_path %></li>
 		<% end %>
-	</p>
+              
+              <li><%= link_to image_tag("fb1.png", alt: "facebook"), "#"%></li>
+              <li><%= link_to image_tag("insta1.png", alt: "instagram"), "#"%></li>
+         </ul>
+        </div>
+      </div>
+    </nav>
+
+
 
 <%= yield %>
-
+ <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+          <div class="col-xs-12 col-sm-1">
+            <%= link_to image_tag("logoin.png", alt: "InJunior"), "#"%>
+          </div>
+          <div class="col-xs-12 col-sm-11">
+            <p class="p-footer "> </p><div class="cinza">IN Junior - Empresa Júnior de Computação da UFF - Todos os direitos reservados</div><p></p>
+            <p>Rua Passos da Pátria, 156 - Instituto de Computação - Sala 115-B, Niterói</p>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /.container-fluid -->
+   </footer>
 </body>
+
 </html>

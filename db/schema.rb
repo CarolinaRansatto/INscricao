@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704131607) do
+ActiveRecord::Schema.define(version: 20160706202958) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(version: 20160704131607) do
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+
+  create_table "cadastro_es", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.string   "telefone"
+    t.string   "cpf"
+    t.string   "matricula"
+    t.integer  "periodo"
+    t.string   "curso"
+    t.string   "evento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cadastro_es_eventos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "candidatos", force: :cascade do |t|
     t.string   "nome"
@@ -43,6 +61,12 @@ ActiveRecord::Schema.define(version: 20160704131607) do
 
   create_table "data_dinamicas", force: :cascade do |t|
     t.string   "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eventos", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
