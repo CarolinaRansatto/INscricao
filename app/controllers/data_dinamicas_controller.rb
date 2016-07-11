@@ -1,17 +1,12 @@
 class DataDinamicasController < ApplicationController
 	before_action :exigir_login
-
-	def index
-		@data = DataDinamica.new
-		@datas = DataDinamica.all
-	end
 	
 	def create
 		@data = DataDinamica.new(data_dinamica_params)
 		if !@data.save
 			flash[:danger] = 'Data inválida'
 		end
-		redirect_to data_dinamicas_url
+		redirect_to ps_config_url
 	end
 	
 	def update
@@ -19,14 +14,15 @@ class DataDinamicasController < ApplicationController
 		if !@data.update_attributes(data_dinamica_params)
 			flash[:danger] = 'Data inválida'
 		end
-		redirect_to data_dinamicas_url
+		redirect_to ps_config_url
 	end
 	
 	def destroy
 		DataDinamica.find(params[:id]).destroy
-    	flash[:success] = 'Data removida'
-    	redirect_to data_dinamicas_url
+    flash[:success] = 'Data removida'
+    redirect_to ps_config_url
 	end
+	
 	
 	private
 

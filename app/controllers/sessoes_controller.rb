@@ -7,7 +7,7 @@ class SessoesController < ApplicationController
     admin = Admin.find_by(email: params[:sessao][:email])
     if admin && admin.authenticate(params[:sessao][:password])
       login admin
-      redirect_to data_dinamicas_url
+      redirect_to ps_config_url
     else
       flash.now[:danger] = 'Email e/ou senha inválidos'
       render 'new'

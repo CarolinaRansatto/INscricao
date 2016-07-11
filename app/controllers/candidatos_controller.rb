@@ -1,5 +1,5 @@
 class CandidatosController < ApplicationController
-  before_action :exigir_login, only: [:index]
+  before_action :exigir_login, only: [:index, :config]
 
   def index
     @candidatos = Candidato.all
@@ -45,6 +45,13 @@ class CandidatosController < ApplicationController
   end
 
   def success
+  end
+  
+  def configurar
+    @data = DataDinamica.new
+		@datas = DataDinamica.all
+		@curso = Curso.new
+		@cursos = Curso.all
   end
 
 

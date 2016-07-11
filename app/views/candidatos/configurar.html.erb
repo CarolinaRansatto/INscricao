@@ -1,0 +1,65 @@
+<% provide(:title, 'Configurações do PS') %>
+
+<h1>Configurações do PS</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Curso</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cursos.each do |c| %>
+			<tr>
+				<td>
+					<%= form_for c do |f| %>
+						<%= f.text_field :nome %>
+						<%= f.submit "Editar" %>
+					<% end %>
+				</td>
+				<td>
+					<%= button_to "Remover", c, method: :delete, data: { confirm: "Confirmar" } %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>
+				<%= form_for @curso do |f| %>
+					<%= f.text_field :nome %>
+					<%= f.submit "Salvar" %>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table>
+	<thead>
+		<tr>
+			<th>Data</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @datas.each do |d| %>
+			<tr>
+				<td>
+					<%= form_for d do |f| %>
+						<%= f.text_field :data %>
+						<%= f.submit "Editar" %>
+					<% end %>
+				</td>
+				<td>
+					<%= button_to "Remover", d, method: :delete, data: { confirm: "Confirmar" } %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>
+				<%= form_for @data do |f| %>
+					<%= f.text_field :data %>
+					<%= f.submit "Salvar" %>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>
