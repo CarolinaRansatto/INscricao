@@ -13,7 +13,7 @@ class CandidatosController < ApplicationController
   	@candidato = Candidato.new(candidato_params)
   	if @candidato.save
   		CandidatoMailer.editar_inscricao(@candidato).deliver_now
-  		redirect_to success_url(id: @candidato.id, token: @candidato.edit_token)
+  		redirect_to ps_success_url(id: @candidato.id, token: @candidato.edit_token)
   	else
   		render 'new'
   	end
@@ -24,7 +24,7 @@ class CandidatosController < ApplicationController
     if params[:token] != nil
       session[:edit_token] = params[:token]
     end
-  	if !@candidato || !@candidato.autorizado?(session[:edit_token])
+    if !@candidato || !@candidato.autorizado?(session[:edit_token])
   		redirect_to new_candidato_url
     end
   end
@@ -32,17 +32,17 @@ class CandidatosController < ApplicationController
   def update
   	@candidato = Candidato.find(params[:id])
   	email = @candidato.email
-
-  	if @candidato.update_attributes(candidato_params)
+    
+    if @candidato.update_attributes(candidato_params)
   		if email != params[:email]
         @candidato.edit_token = session[:edit_token]
   			CandidatoMailer.editar_inscricao(@candidato).deliver_now
   		end
-  		redirect_to success_url(id: params[:id], token: session[:edit_token])
-	  else
+  		redirect_to ps_success_url(id: params[:id], token: session[:edit_token])
+    else
 	  	render 'edit'
-	  end
-	end
+    end
+  end
 
   def success
   end

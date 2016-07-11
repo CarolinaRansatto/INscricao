@@ -21,13 +21,20 @@
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "A empresa", "#"%></a></li>
               <li><%= link_to "Portifólio", "#"%></a></li>
-              <li><%= link_to "Processo seletivo", "#"%></a></li>
+              <li><%= link_to "Processo seletivo", ""%></a></li>
               <li><%= link_to "Contatos", "#"%></a></li>
               <li><%= link_to "Eventos", "#"%></a></li>
               <% if logado? %>
-								<li><%= link_to "Candidatos Inscritos", candidatos_path %> </li> 
-								<li><%= link_to "Datas de Dinâmica", data_dinamicas_path %> </li>
-								<li><%= link_to "Log out", logout_path, method: "delete" %> </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Candidatos Inscritos", candidatos_path %> </li> 
+			  	  				<li><%= link_to "Datas de Dinâmica", data_dinamicas_path %> </li>
+				  	  	
+                  </ul>
+                </li>
+                <li><%= link_to "Log out", logout_path, method: "delete" %> </li>
+								
 							<% else %>
 								<li><%= link_to "Login", login_path %></li>
 		<% end %>
@@ -46,9 +53,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-          <div class="col-xs-12 col-sm-1">
-            <%= link_to image_tag("logoin.png", alt: "InJunior"), "#"%>
-          </div>
+
           <div class="col-xs-12 col-sm-11">
             <p class="p-footer "> </p><div class="cinza">IN Junior - Empresa Júnior de Computação da UFF - Todos os direitos reservados</div><p></p>
             <p>Rua Passos da Pátria, 156 - Instituto de Computação - Sala 115-B, Niterói</p>

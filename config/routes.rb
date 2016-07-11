@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :cadastro_es, only: [:index, :new, :create, :edit, :update]
   get 'cadastro_es/success', as: :ce_success
   resources :candidatos, only: [:index, :new, :create, :edit, :update]
-  resources :data_dinamicas, only: [:index, :new, :create, :edit, :update]
+  resources :data_dinamicas, only: [:index, :create, :update, :destroy]
   get 'candidatos/success', as: :ps_success
 
   get '/login', 			to: 'sessoes#new'

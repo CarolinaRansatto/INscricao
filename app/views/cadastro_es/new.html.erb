@@ -9,45 +9,47 @@
     <%= render 'shared/error_messages', object: f.object %>
 	<p>
 	<%= f.label :nome %><br>
-	<%= f.text_field :nome %>
+	<%= f.text_field :nome, :class=>'form-control' %>
 	</p>
 
 	<p>
-	<%= f.label :email %><br>
-	<%= f.text_field :email %>
-	</p>
-
-	<p>
-	<%= f.label :curso %><br>
-	<%= f.text_field :curso %>
+	<%= f.label :cpf %><br>
+	<%= f.text_field :cpf, :class=>'form-control' %>
 	</p>
 	
 	<p>
+	<%= f.label :email %><br>
+	<%= f.text_field :email, :class=>'form-control' %>
+	</p>
+
+	<p>
 	<%= f.label :telefone %><br>
-	<%= f.text_field :telefone %>
+	<%= f.text_field :telefone, :class=>'form-control' %>
+	</p>
+
+	<%= f.label :matrícula %><br>
+	<%= f.text_field :matricula, :class=>'form-control' %>
+	
+	<p>
+	<%= f.label :curso %><br>
+	<%= f.text_field :curso, :class=>'form-control' %>
+	</p>
+	
+
+	<p>
+	<%= f.label :período %><br>
+	<%= f.select :periodo, options_for_select(1..8), {}, class: "form-control"%>
 	</p>
 
 	<p>
 	<%= f.label :evento %><br>
-	<%= f.text_field :evento %>
+	<%= f.check_box :evento %>
 	</p>
 	
-	<p>
-	<%= f.label :período %><br>
-	<%= f.select :periodo, options_for_select(1..8) %>
-	</p>
-
-	<%= f.label :matrícula %><br>
-	<%= f.text_field :matricula %>
-
-	<p>
-	<%= f.label :cpf %><br>
-	<%= f.text_field :cpf %>
-	</p>
 
 	
 
-	<p><%= f.submit "Inscrever" %></p>
+	<p><%= f.submit "Inscrever", :class=>'btn btn-primary center-block' %></p>
 <% end %>
 </div>
 </div>
