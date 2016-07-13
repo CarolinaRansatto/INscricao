@@ -8,11 +8,12 @@ class Candidato < ActiveRecord::Base
 	before_create :criar_edit_digest
 
 	validates :nome, presence: true
-	validates :email, presence: true, 
+	validates :email, presence: true, uniqueness: { case_sensitive: false }, 
 		format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
 	validates :cpf, presence: true
 	usar_como_cpf :cpf
-	validates :matricula, presence: true, length: { is: 11 }
+	validates :matricula, presence: true, uniqueness: true, length: { is: 9 },
+		numericality: { only_integer: true }
 	validates :periodo, presence: true
 	validates :curso_id, presence: true
 	validates :data_dinamica_id, presence: true

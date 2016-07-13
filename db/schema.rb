@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706202958) do
+ActiveRecord::Schema.define(version: 20160712235855) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20160706202958) do
     t.integer  "data_dinamica_id"
     t.string   "edit_digest"
   end
+
+  add_index "candidatos", ["matricula"], name: "index_candidatos_on_matricula", unique: true
 
   create_table "cursos", force: :cascade do |t|
     t.string   "nome"
