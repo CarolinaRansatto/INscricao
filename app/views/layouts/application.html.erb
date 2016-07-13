@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html class ="<%= content_for :html_class %>">
 <head>
   <title><%= yield(:title) %> | IN Junior</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= controller.controller_name %>">
+<body class = "<%= content_for :body_class %>">
+  <div class="<%= content_for :div_class %>" >
 	  <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -21,9 +22,9 @@
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "A empresa", "#"%></a></li>
               <li><%= link_to "Portifólio", "#"%></a></li>
-              <li><%= link_to "Processo seletivo", ""%></a></li>
+              <li><%= link_to "Processo seletivo", new_candidato_path %></a></li>
               <li><%= link_to "Contatos", "#"%></a></li>
-              <li><%= link_to "Eventos", "#"%></a></li>
+              <li><%= link_to "Eventos", new_cadastro_e_path %></a></li>
               <% if logado? %>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -49,19 +50,20 @@
 
 
 <%= yield %>
- <footer>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-
-          <div class="col-xs-12 col-sm-11">
-            <p class="p-footer "> </p><div class="cinza">IN Junior - Empresa Júnior de Computação da UFF - Todos os direitos reservados</div><p></p>
-            <p>Rua Passos da Pátria, 156 - Instituto de Computação - Sala 115-B, Niterói</p>
+    <footer class="<%= content_for :footer_class %>">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+  
+            <div class="col-xs-12 col-sm-11">
+              <p class="p-footer "> </p><div class="cinza">IN Junior - Empresa Júnior de Computação da UFF - Todos os direitos reservados</div><p></p>
+              <p>Rua Passos da Pátria, 156 - Instituto de Computação - Sala 115-B, Niterói</p>
+            </div>
           </div>
         </div>
-      </div>
-    </div> <!-- /.container-fluid -->
-   </footer>
+      </div> <!-- /.container-fluid -->
+     </footer>
+   </div><!-- /.page, usado pra deixar o footer no fim -->
 </body>
 
 </html>
