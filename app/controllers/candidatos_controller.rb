@@ -45,6 +45,10 @@ class CandidatosController < ApplicationController
   end
 
   def success
+    if !params[:id] || !params[:token]
+      flash[:danger] = 'Link inválido'
+      redirect_to new_candidato_url
+    end
   end
   
   def configurar
